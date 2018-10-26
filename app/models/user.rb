@@ -57,6 +57,12 @@ class User < ApplicationRecord
     "WY"
   ]
 
-  validates_presence_of :first_name, :last_name, :email, :phone, :address, :city, :state, :zip_code, :pickup_permission, :free_trial, :has_dog
+  validates_presence_of :first_name, :last_name, :email, :phone, :address, :city, :state, :zip_code, :pickup_permission
+  validates :phone, format: { with: /\A[\d -]*\z/ }, length: { is: 10 }
+  validates :zip_code, format: { with: /[0-9]*/ }
+  validates :state, inclusion: { in: STATES }
+  validates_uniqueness_of :email
+
+
 
 end

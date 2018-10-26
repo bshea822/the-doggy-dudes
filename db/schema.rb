@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2018_10_25_152345) do
     t.string "last_name", null: false
     t.string "phone", null: false
     t.string "address", null: false
+    t.string "unit_number"
     t.string "city", null: false
     t.string "state", null: false
     t.string "zip_code", null: false
@@ -29,7 +30,7 @@ ActiveRecord::Schema.define(version: 2018_10_25_152345) do
     t.boolean "free_trial", default: false, null: false
     t.boolean "has_dog", default: false, null: false
     t.string "business_discover"
-    t.string "email", null: false
+    t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
