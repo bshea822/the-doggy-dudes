@@ -1,6 +1,6 @@
 # README
 
-[ ![Codeship Status for bshea822/the-doggy-dudes](https://app.codeship.com/projects/489cc1a0-ba99-0136-3b66-4a9f823a0267/status?branch=master)](https://app.codeship.com/projects/312485)
+[ ![Codeship Status for bshea822/the-doggy-dudes](https://app.codeship.com/projects/30b32ed0-bb41-0136-ecb4-166978af4b72/status?branch=master)](https://app.codeship.com/projects/312596)
 
 # The Doggy Dudes
 
