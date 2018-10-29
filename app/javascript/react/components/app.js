@@ -1,7 +1,16 @@
-import React from 'react'
+import React from 'react';
+import { Router, browserHistory, Route, IndexRoute } from 'react-router';
+import NavBar from './NavBar';
+
 
 export const App = (props) => {
-  return (<h1>Make It So React</h1>)
+  return (
+    <div>
+      <Router history={browserHistory}>
+        <Route path='/' component={NavBar} />
+      </Router>
+    </div>
+  )
 }
 
 export default App
