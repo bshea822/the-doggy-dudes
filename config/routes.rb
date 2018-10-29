@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :current_users, only: [:index]
+      resources :sessions, only: [:index, :new, :create, :destroy]
     end
   end
 end

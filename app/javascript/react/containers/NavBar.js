@@ -7,11 +7,11 @@ class NavBar extends Component {
     this.state = {
       signedIn: false
     };
-
+    this.userSignOut = this.userSignOut.bind(this);
   }
 
   componentDidMount() {
-    fetch('/api/v1/current_users',
+    fetch('/api/v1/sessions',
     {
       credentials: 'same-origin'
     })
@@ -19,7 +19,7 @@ class NavBar extends Component {
       if (response.ok) {
         return response;
       } else {
-        let errorMessage = '${response.status} (${response.statusText})',
+        let errorMessage = `${response.status} (${response.statusText})`,
           error = new Error(errorMessage);
         throw error;
       }
@@ -32,7 +32,29 @@ class NavBar extends Component {
         this.setState({ signedIn: false });
       }
     })
-    .catch(error => console.error('Error in fetch: ${error.message}'));
+    .catch(error => console.error(`Error in fetch: ${error.message}`));
+  }
+
+  userSignOut(event) {
+    fetch('/users/sign_out',
+    {
+      method: 'DELETE',
+      credentials: 'same-origin',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(response => {
+      if (response.ok) {
+        return response;
+      } else {
+        let errorMessage = `${response.status} (${response.statusText})`,
+          error = new Error(errorMessage);
+        throw error;
+      }
+    })
+    .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
   render() {
@@ -50,10 +72,13 @@ class NavBar extends Component {
                 <li><Link to='/'>Forms</Link></li>
               </div>
                 <div className="right">
-                  <li><a href="/users/sign_out">Sign Out</a></li>
+                  <li><Link to='/' onClick={this.userSignOut}>Sign Out</Link></li>
                 </div>
             </ul>
           </header>
+          <div className="content">
+          {this.props.children}
+          </div>
         </div>
       )
     } else {
@@ -75,6 +100,9 @@ class NavBar extends Component {
                 </div>
             </ul>
           </header>
+          <div className="content">
+          {this.props.children}
+          </div>
         </div>
       )
     }
