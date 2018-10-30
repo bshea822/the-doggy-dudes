@@ -1,5 +1,15 @@
-body {
+.slide-component {
+  background: #D94523;
+}
+
+.free-trial-component {
   background: #EDE5C9;
+}
+
+.free-trial-card {
+  margin-top: 2rem;
+  background: #334857;
+  border-radius: 25px;
 }
 
 .subnav-hero-section {
@@ -120,6 +130,9 @@ body {
 
 .clean-hero-slider ul.orbit-container {
   height: 30rem !important;
+  border-radius: 2rem;;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 .clean-hero-slider li.orbit-slide {

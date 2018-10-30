@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import SlideContainer from './SlideContainer';
+import FreeTrial from '../components/FreeTrial';
 
-class Homepage extends Component {
+class HomePage extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -11,10 +12,13 @@ class Homepage extends Component {
   }
 
   render() {
-    <div>
-      <SlideContainer />
-    </div>
+    return(
+      <div>
+        <SlideContainer />
+        <FreeTrial />
+      </div>
+    )
   }
 }
 
-export default SlideContainer;
+export default HomePage;

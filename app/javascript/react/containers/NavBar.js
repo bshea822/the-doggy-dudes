@@ -55,7 +55,7 @@ class NavBar extends Component {
       }
     })
     .then(response => {
-      this.setState({ signedIn: false})
+      this.setState({ signedIn: false});
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }

@@ -24,7 +24,7 @@ class SlideContainer extends Component {
       )
     })
     return(
-      <div>
+      <div className="slide-component">
         <div className="grid-x grid-padding-x align-center">
           <div className="cell large-8">
             <div className="orbit clean-hero-slider" role="region" aria-label="Favorite Space Pictures" data-orbit>
