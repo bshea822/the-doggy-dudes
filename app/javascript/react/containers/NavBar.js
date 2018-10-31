@@ -5,13 +5,13 @@ class NavBar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      signedIn: false
+      currentUser: {}
     };
     this.userSignOut = this.userSignOut.bind(this);
   }
 
   componentDidMount() {
-    fetch('/api/v1/sessions',
+    fetch('/api/v1/users',
     {
       credentials: 'same-origin'
     })
@@ -27,9 +27,9 @@ class NavBar extends Component {
     .then(response => response.json())
     .then(data => {
       if (data) {
-        this.setState({ signedIn: true });
+        this.setState({ currentUser: data.user });
       } else {
-        this.setState({ signedIn: false });
+        this.setState({ currentUser: null });
       }
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
@@ -55,7 +55,7 @@ class NavBar extends Component {
       }
     })
     .then(response => {
-      this.setState({ signedIn: false});
+      this.setState({ currentUser: null });
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
@@ -63,11 +63,11 @@ class NavBar extends Component {
   render() {
     const children = React.Children.map(this.props.children, child => {
       return React.cloneElement(child, {
-        signedIn: this.state.signedIn
+        currentUser: this.state.currentUser
       });
     });
 
-    if (this.state.signedIn === true) {
+    if (this.state.currentUser) {
       return(
         <div>
           <header className="subnav-hero-section">
@@ -77,7 +77,7 @@ class NavBar extends Component {
                 <li><Link to='/'>Home</Link></li>
                 <li><Link to='/'>About Us</Link></li>
                 <li><Link to='/'>Services</Link></li>
-                <li><Link to='/'>Schedule Pickups</Link></li>
+                <li><Link to='/pickups'>Schedule Pickups</Link></li>
               </div>
                 <div className="right">
                   <li><Link to='/' onClick={this.userSignOut}>Sign Out</Link></li>
