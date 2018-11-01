@@ -22,11 +22,14 @@ class UserDogsContainer extends Component {
         )
       })
       return(
-        <div className="grid-x">
-          <div className="cell large-6 large-offset-1">
-            <h1>Dogs:</h1>
-            {dogs}
+        <div>
+          <div className="grid-x">
+            <div className="cell large-6 large-offset-1">
+              <h1>Dogs:</h1>
+              {dogs}
+            </div>
           </div>
+          <button className="button" onClick={this.props.toggleDogForm}>Add A Dog</button>
         </div>
       )
     } else {

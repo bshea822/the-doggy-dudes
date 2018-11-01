@@ -1,14 +1,24 @@
 import React, { Component } from 'react';
 import UserDogsContainer from './UserDogsContainer';
+import NewDogFormContainer from './NewDogFormContainer';
 
 class PickupScheduler extends Component {
   constructor(props) {
     super(props);
     this.state = {
       selectedDogs: [],
-      renderCount: 0
+      renderCount: 0,
+      showDogForm: false
     };
     this.handleSelectDog = this.handleSelectDog.bind(this);
+  }
+
+  toggleDogForm(event) {
+    if (this.state.showDogForm === false) {
+      this.setState({ showDogForm: true });
+    } else {
+      this.setState({ showDogForm: false });
+    }
   }
 
   handleSelectDog(event) {
@@ -28,13 +38,18 @@ class PickupScheduler extends Component {
   render() {
     return(
       <div className="grid-x">
-        <div className="cell large-4 large-offset-1">
-          <UserDogsContainer
-            currentUser={this.props.currentUser}
-            handleSelectDog={this.handleSelectDog}
-          />
+        <div className="row">
+          <div className="cell large-4 large-offset-1">
+            <UserDogsContainer
+              currentUser={this.props.currentUser}
+              handleSelectDog={this.handleSelectDog}
+              toggleDogForm={this.toggleDogForm}
+            />
+          </div>
         </div>
-        <p></p>
+        <div className="row">
+          <NewDogFormContainer />
+        </div>
       </div>
     )
   }
