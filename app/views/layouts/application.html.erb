@@ -16,63 +16,6 @@
 
   <body>
 
-    <!-- <header class="subnav-hero-section">
-      <h1 class="subnav-hero-headline"><img src="https://s3.us-east-2.amazonaws.com/doggy-dudes-images/images/logo.png"></img></h1>
-      <ul class="subnav-hero-subnav">
-        <div class="left">
-          <li><%= link_to 'Home', "/" %></li>
-          <li><%= link_to 'About Us', "/" %></li>
-          <li><%= link_to 'Services', "/" %></li>
-          <li><%= link_to 'Hours & Rates', "/" %></li>
-          <li><%= link_to 'Forms', "/" %></li>
-        </div>
-          <div class="right">
-            <%- if current_user -%>
-              <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
-            <%- else -%>
-              <li><%= link_to 'Sign Up', new_user_registration_path %></li>
-              <li><%= link_to 'Sign In', new_user_session_path %></li>
-            <%- end -%>
-          </div>
-      </ul>
-    </header> -->
-
-
-
-    <!-- <ul class="menu menu-hover-lines">
-      <li class="active"><a href="#">Home</a></li>
-      <li><a href="#">About Us</a></li>
-      <li><a href="#">Blog</a></li>
-      <li><a href="#">Services</a></li>
-      <li><a href="#">Products</a></li>
-      <li><a href="#">Contact</a></li>
-    </ul> -->
-
-
-    <!-- <nav class="top-bar">
-      <ul class="title-area">
-        <li class="name">
-          <h1><a href="/">DoggyDudes</a></h1>
-        </li>
-      </ul>
-      <section class="top-bar-section">
-        <ul class="right">
-          <%- if current_user -%>
-            <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
-          <%- else -%>
-            <li><%= link_to 'Sign Up', new_user_registration_path %></li>
-            <li><%= link_to 'Sign In', new_user_session_path %></li>
-          <%- end -%>
-        </ul>
-      </section>
-    </nav> -->
-
-  <!-- <%- flash.each do |key, value| -%>
-    <div class="flash flash-<%= key %>">
-      <%= value %>
-    </div>
-  <%- end -%> -->
-
     <%= yield %>
 
     <%= javascript_include_tag 'application' %>

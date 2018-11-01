@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import SlideTile from '../components/SlideTile';
+import Carousel from 'nuka-carousel'
 
 class SlideContainer extends Component {
   constructor(props) {
@@ -24,22 +25,15 @@ class SlideContainer extends Component {
       )
     })
     return(
-      <div className="slide-component">
-        <div className="grid-x grid-padding-x align-center">
-          <div className="cell large-8">
-            <div className="orbit clean-hero-slider" role="region" aria-label="Favorite Space Pictures" data-orbit>
-              <div className="orbit-wrapper">
-                <div className="orbit-controls">
-                  <button className="orbit-previous"><span className="show-for-sr">Previous Slide</span>&#9664;&#xFE0E;</button>
-                  <button className="orbit-next"><span className="show-for-sr">Next Slide</span>&#9654;&#xFE0E;</button>
-                </div>
-                <ul className="orbit-container">
-                  {images}
-                </ul>
-              </div>
-            </div>
+      <div className="grid-x slide-component">
+          <div className="cell large-8 large-offset-2">
+            <Carousel
+              autoplay={true}
+              wrapAround={true}
+            >
+              {images}
+            </Carousel>
           </div>
-        </div>
       </div>
     )
   }

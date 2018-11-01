@@ -130,9 +130,14 @@
 
 .clean-hero-slider ul.orbit-container {
   height: 30rem !important;
-  border-radius: 2rem;;
+  border-radius: 2rem;
   margin-top: 2rem;
   margin-bottom: 2rem;
+}
+
+.slider-frame ul.slider-list .slider-slide {
+  height: 30rem !important;
+
 }
 
 .clean-hero-slider li.orbit-slide {
