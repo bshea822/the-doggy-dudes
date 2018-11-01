@@ -4,7 +4,7 @@ class DogContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-
+      
     };
 
   }
@@ -17,7 +17,6 @@ class DogContainer extends Component {
             name={this.props.dogInfo.name}
             id={this.props.dogInfo.name}
             type='checkbox'
-            value="off"
             onClick={this.props.handleSelectDog}
           />
           {this.props.dogInfo.name}
