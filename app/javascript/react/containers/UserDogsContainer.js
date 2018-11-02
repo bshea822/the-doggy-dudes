@@ -1,13 +1,18 @@
 import React, { Component } from 'react';
 import DogContainer from './DogContainer';
+import NewDogForm from './NewDogForm';
 
 class UserDogsContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-
+      showAddDogForm: true
     };
+    this.toggleAddDogForm = this.toggleAddDogForm.bind(this);
+  }
 
+  toggleAddDogForm(event) {
+    this.setState({ showAddDogForm: !this.state.showAddDogForm });
   }
 
   render() {
@@ -24,12 +29,23 @@ class UserDogsContainer extends Component {
       return(
         <div>
           <div className="grid-x">
-            <div className="cell large-6 large-offset-1">
-              <h1>Dogs:</h1>
-              {dogs}
+            <div className="row">
+              <div className="cell large-6 large-offset-1">
+                <h1>Dogs:</h1>
+                {dogs}
+              </div>
             </div>
           </div>
-          <button className="button" onClick={this.props.toggleDogForm}>Add A Dog</button>
+          <div className="grid-x">
+            <div className="row">
+              <button className="button" onClick={this.toggleAddDogForm}>Add A Dog</button>
+            </div>
+          </div>
+          <div className="grid-x">
+            <div className="row">
+              {!this.state.showAddDogForm && <NewDogForm />}
+            </div>
+          </div>
         </div>
       )
     } else {

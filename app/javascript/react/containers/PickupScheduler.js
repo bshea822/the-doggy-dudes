@@ -1,25 +1,16 @@
 import React, { Component } from 'react';
 import UserDogsContainer from './UserDogsContainer';
-import NewDogFormContainer from './NewDogFormContainer';
 
 class PickupScheduler extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedDogs: [],
-      renderCount: 0,
-      showDogForm: false
+      selectedDogs: []
     };
     this.handleSelectDog = this.handleSelectDog.bind(this);
   }
 
-  toggleDogForm(event) {
-    if (this.state.showDogForm === false) {
-      this.setState({ showDogForm: true });
-    } else {
-      this.setState({ showDogForm: false });
-    }
-  }
+
 
   handleSelectDog(event) {
     if (!this.state.selectedDogs.includes(event.target.id)) {
@@ -43,12 +34,8 @@ class PickupScheduler extends Component {
             <UserDogsContainer
               currentUser={this.props.currentUser}
               handleSelectDog={this.handleSelectDog}
-              toggleDogForm={this.toggleDogForm}
             />
           </div>
-        </div>
-        <div className="row">
-          <NewDogFormContainer />
         </div>
       </div>
     )
