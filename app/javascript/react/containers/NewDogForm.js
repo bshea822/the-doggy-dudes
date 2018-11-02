@@ -15,8 +15,8 @@ class NewDogForm extends Component {
       voiceCommands: "",
       dogAggression: ""
     };
-    this.handleRabiesShotChange = this.handleRabiesShotChange.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.handleFormSubmit = this.handleFormSubmit.bind(this);
   }
 
   handleChange(event) {
@@ -25,7 +25,7 @@ class NewDogForm extends Component {
 
   handleFormSubmit(event) {
     event.preventDefault();
-    
+
   }
 
   render() {
