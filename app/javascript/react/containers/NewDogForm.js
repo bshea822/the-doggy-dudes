@@ -13,7 +13,13 @@ class NewDogForm extends Component {
       otherShots: "",
       dogHandling: "",
       voiceCommands: "",
-      dogAggression: ""
+      dogAggression: "",
+      dogFixed: null,
+      dogReturn: "",
+      dogIssues: "",
+      tosAccept: null,
+      tosName: "",
+      tosDate: ""
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
@@ -62,11 +68,32 @@ class NewDogForm extends Component {
         <label>
           Dog Birthday:
           <input
-            type="text"
+            type="date"
             name="dogBirthday"
             value={this.state.dogBirthday}
             onChange={this.handleChange}
           />
+        </label>
+        <label>
+          Has your dog been fixed??<br/>
+          <label>
+            <input
+              type="radio"
+              name="dogFixed"
+              value={true}
+              onChange={this.handleChange}
+            />
+            Yes
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="dogFixed"
+              value={false}
+              onChange={this.handleChange}
+            />
+            No
+          </label>
         </label>
         <label>
           Has your dog had a rabies shot?<br/>
