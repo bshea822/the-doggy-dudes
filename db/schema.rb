@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_30_170208) do
+ActiveRecord::Schema.define(version: 2018_11_03_190005) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,13 +22,19 @@ ActiveRecord::Schema.define(version: 2018_10_30_170208) do
     t.integer "size", null: false
     t.datetime "birthday"
     t.boolean "rabies", null: false
-    t.string "rabies_docs", null: false
+    t.string "rabies_docs"
     t.text "shots"
     t.text "dog_handling"
     t.text "voice_commands"
     t.text "dog_aggression"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "fixed", null: false
+    t.text "dog_return"
+    t.text "dog_issues"
+    t.boolean "tos_accept", null: false
+    t.string "tos_name", null: false
+    t.date "tos_date", null: false
     t.index ["user_id"], name: "index_dogs_on_user_id"
   end
 
@@ -45,7 +51,6 @@ ActiveRecord::Schema.define(version: 2018_10_30_170208) do
     t.string "vet"
     t.string "vet_phone"
     t.boolean "free_trial", default: false, null: false
-    t.boolean "has_dog", default: false, null: false
     t.string "business_discover"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -66,6 +71,7 @@ ActiveRecord::Schema.define(version: 2018_10_30_170208) do
     t.datetime "locked_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "pickup_instructions"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
