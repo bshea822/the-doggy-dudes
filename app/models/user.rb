@@ -58,6 +58,8 @@ class User < ApplicationRecord
   ]
 
   has_many :dogs
+  has_many :pickups
+  
 
   validates_presence_of :first_name, :last_name, :email, :phone, :address, :city, :state, :zip_code, :pickup_permission
   validates :phone, format: { with: /\A[\d -]*\z/ }, length: { is: 10 }
