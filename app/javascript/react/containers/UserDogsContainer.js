@@ -6,7 +6,8 @@ class UserDogsContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      showAddDogForm: true
+      showAddDogForm: true,
+      formButtonName: "Add A Dog"
     };
     this.toggleAddDogForm = this.toggleAddDogForm.bind(this);
 
@@ -14,6 +15,11 @@ class UserDogsContainer extends Component {
 
   toggleAddDogForm() {
     this.setState({ showAddDogForm: !this.state.showAddDogForm });
+    if (this.state.showAddDogForm === false) {
+      this.setState({ formButtonName: "Add A Dog" });
+    } else {
+      this.setState({ formButtonName: "Close Form" });
+    }
   }
 
 
@@ -41,7 +47,7 @@ class UserDogsContainer extends Component {
           </div>
           <div className="grid-x">
             <div className="row">
-              <button className="button" onClick={this.toggleAddDogForm}>Add A Dog</button>
+              <button className="button" onClick={this.toggleAddDogForm}>{this.state.formButtonName}</button>
             </div>
           </div>
           <div className="grid-x">

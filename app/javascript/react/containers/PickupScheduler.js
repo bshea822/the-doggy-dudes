@@ -59,22 +59,42 @@ class PickupScheduler extends Component {
   }
 
   handleSelectDog(event) {
-    if (!this.state.selectedDogs.includes(event.target.id)) {
+    if (this.state.selectedDogs.length === 0) {
       let newDog = event.target.id;
+      this.state.userDogs.forEach((userDog) => {
+        if (newDog === userDog.name) {
+          newDog = userDog;
+        }
+      });
       let newSelectedDogs = [];
       newSelectedDogs.push(newDog);
-      this.setState({ selectedDogs: this.state.selectedDogs.concat(newSelectedDogs) });
+      this.setState({ selectedDogs: this.state.selectedDogs.concat(newSelectedDogs)});
     } else {
-      let index = this.state.selectedDogs.indexOf(event.target.id);
-      let newSelectedDogs = this.state.selectedDogs;
-      newSelectedDogs.splice(index, 1);
-      this.setState({ selectedDogs: newSelectedDogs });
+      let index = 0;
+      this.state.selectedDogs.forEach((selectedDog) => {
+        if (!selectedDog.name.includes(event.target.id)) {
+          let newDog = event.target.id;
+          this.state.userDogs.forEach((userDog) => {
+            if (newDog === userDog.name) {
+              newDog = userDog;
+            }
+          });
+          let newSelectedDogs = [];
+          newSelectedDogs.push(newDog);
+          this.setState({ selectedDogs: this.state.selectedDogs.concat(newSelectedDogs)});
+        } else if (selectedDog.name.includes(event.target.id)) {
+          let newSelectedDogs = this.state.selectedDogs;
+          newSelectedDogs.splice(index, 1);
+          this.setState({ selectedDogs: newSelectedDogs});
+        }
+        index ++;
+      });
     }
   }
 
   render() {
     return(
-      <div className="grid-x">
+      <div className="grid-x margin-y">
         <div className="row">
           <div className="cell large-4 large-offset-1">
             <UserDogsContainer
