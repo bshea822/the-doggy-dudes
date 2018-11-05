@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 2018_11_03_200748) do
     t.text "dog_issues"
     t.boolean "tos_accept", null: false
     t.string "tos_name", null: false
-    t.date "tos_date", null: false
+    t.datetime "tos_date", null: false
     t.index ["user_id"], name: "index_dogs_on_user_id"
   end
 

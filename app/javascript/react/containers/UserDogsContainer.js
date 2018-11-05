@@ -9,15 +9,18 @@ class UserDogsContainer extends Component {
       showAddDogForm: true
     };
     this.toggleAddDogForm = this.toggleAddDogForm.bind(this);
+
   }
 
-  toggleAddDogForm(event) {
+  toggleAddDogForm() {
     this.setState({ showAddDogForm: !this.state.showAddDogForm });
   }
 
+
+
   render() {
-    if (this.props.currentUser.dogs) {
-      let dogs = this.props.currentUser.dogs.map((dog) => {
+    if (this.props.userDogs) {
+      let dogs = this.props.userDogs.map((dog) => {
         return(
           <DogContainer
             key={dog.id}
@@ -43,7 +46,11 @@ class UserDogsContainer extends Component {
           </div>
           <div className="grid-x">
             <div className="row">
-              {!this.state.showAddDogForm && <NewDogForm />}
+              {!this.state.showAddDogForm && <NewDogForm
+                addNewDog={this.props.addNewDog}
+                toggleAddDogForm={this.toggleAddDogForm}
+                />
+              }
             </div>
           </div>
         </div>

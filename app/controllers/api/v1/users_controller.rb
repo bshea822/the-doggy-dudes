@@ -5,7 +5,6 @@ class Api::V1::UsersController < ApplicationController
 
   before_action :authenticate_user!, only: [:destroy]
 
-
   def index
     render json: current_user
   end
