@@ -14,9 +14,7 @@ class DogContainer extends Component {
       <div className="row large-offset-1">
         <label>
           <input
-            name={this.props.dogInfo.name}
             id={this.props.dogInfo.name}
-            className="checkbox"
             value={this.props.dogInfo.name}
             type='checkbox'
             onChange={this.props.handleSelectDog}

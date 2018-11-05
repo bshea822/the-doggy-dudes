@@ -12,6 +12,14 @@
   border-radius: 25px;
 }
 
+.termsx {
+  overflow-y: scroll;
+  height: 200px;
+  width: 100%;
+  border: 1px solid black;
+  padding: 10px;
+}
+
 .subnav-hero-section {
   text-align: center;
   background: #EDE5C9;

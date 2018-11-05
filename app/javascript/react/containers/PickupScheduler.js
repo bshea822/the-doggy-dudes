@@ -5,12 +5,58 @@ class PickupScheduler extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedDogs: []
+      selectedDogs: [],
+      userDogs: []
     };
     this.handleSelectDog = this.handleSelectDog.bind(this);
+    this.addNewDog = this.addNewDog.bind(this);
   }
 
+  addNewDog(formPayload) {
+    fetch("api/v1/dogs", {
+      method: "POST",
+      body: JSON.stringify(formPayload),
+      headers: {
+        "Accept": "application/json",
+        "Content-Type": "application/json"},
+      credentials: "same-origin"
+    })
+    .then(response => {
+      if (response.ok) {
+        return response;
+      } else {
+        let errorMessage = `${response.status}, (${response.statusText})`,
+          error = new Error(errorMessage);
+        throw error;
+      }
+    })
+    .then(response => response.json())
+    .then(data => {
+      this.setState({ userDogs: data.dogs });
+    })
+    .catch(error => console.error(`Error in fetch: ${error.message}`));
+  }
 
+  componentDidMount() {
+    fetch('/api/v1/users',
+    {
+      credentials: 'same-origin'
+    })
+    .then(response => {
+      if (response.ok) {
+        return response;
+      } else {
+        let errorMessage = `${response.status} (${response.statusText})`,
+          error = new Error(errorMessage);
+        throw error;
+      }
+    })
+    .then(response => response.json())
+    .then(data => {
+      this.setState({ userDogs: data.user.dogs });
+    })
+    .catch(error => console.error(`Error in fetch: ${error.message}`));
+  }
 
   handleSelectDog(event) {
     if (!this.state.selectedDogs.includes(event.target.id)) {
@@ -32,8 +78,9 @@ class PickupScheduler extends Component {
         <div className="row">
           <div className="cell large-4 large-offset-1">
             <UserDogsContainer
-              currentUser={this.props.currentUser}
+              userDogs={this.state.userDogs}
               handleSelectDog={this.handleSelectDog}
+              addNewDog={this.addNewDog}
             />
           </div>
         </div>

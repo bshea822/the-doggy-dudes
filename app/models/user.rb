@@ -65,6 +65,4 @@ class User < ApplicationRecord
   validates :state, inclusion: { in: STATES }
   validates_uniqueness_of :email
 
-
-
 end
