@@ -10,7 +10,6 @@ class Api::V1::DogsController < ApplicationController
 
   def create
 		dog = Dog.new(dog_params)
-    binding.pry
 		if dog.save!
 			render json: current_user.dogs
 		else

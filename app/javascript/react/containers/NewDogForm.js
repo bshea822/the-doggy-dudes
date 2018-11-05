@@ -58,23 +58,23 @@ class NewDogForm extends Component {
     event.preventDefault();
     if (this.state.dogName != "" && this.state.dogBreed != "" && this.state.dogsize != "" && this.state.rabiesShot != null && this.state.dogFixed != null && this.state.tosAccept != null && this.state.tosName != "") {
 
-      let formPayload = new FormData();
-      formPayload.append("name", this.state.dogName);
-      formPayload.append("breed", this.state.dogBreed);
-      formPayload.append("size", this.state.dogSize);
-      formPayload.append("birthday", this.state.dogBirthday);
-      formPayload.append("rabies", this.state.rabiesShot);
-      formPayload.append("rabies_docs", this.state.rabiesShot[0]);
-      formPayload.append("shots", this.state.otherShots);
-      formPayload.append("dog_handling", this.state.dogHandling);
-      formPayload.append("voice_commands", this.state.voiceCommands);
-      formPayload.append("dog_aggression", this.state.dogAggression);
-      formPayload.append("fixed", this.state.dogFixed);
-      formPayload.append("dog_return", this.state.dogReturn);
-      formPayload.append("dog_issues", this.state.dogIssues);
-      formPayload.append("tos_accept", this.state.tosAccept);
-      formPayload.append("tos_name", this.state.tosName);
-      debugger
+      let formPayload = {
+        name: this.state.dogName,
+        breed: this.state.dogBreed,
+        size: this.state.dogSize,
+        birthday: this.state.dogBirthday,
+        rabies: this.state.rabiesShot,
+        rabies_docs: this.state.rabiesShot,
+        shots: this.state.otherShots,
+        dog_handling: this.state.dogHandling,
+        voice_commands: this.state.voiceCommands,
+        dog_aggression: this.state.dogAggression,
+        fixed: this.state.dogFixed,
+        dog_return: this.state.dogReturn,
+        dog_issues: this.state.dogIssues,
+        tos_accept: this.state.tosAccept,
+        tos_name: this.state.tosName
+      };
 
       this.props.addNewDog(formPayload);
       this.handleFormClear();
@@ -84,7 +84,7 @@ class NewDogForm extends Component {
 
   onDrop(file) {
     if(file.length == 1) {
-      this.setState({ rabiesDocs: file });
+      this.setState({ rabiesDoc: file });
     } else {
       this.setState({ message: 'You can only upload one file.'});
     }
@@ -180,21 +180,6 @@ class NewDogForm extends Component {
             onChange={this.handleChange}
           />
         </label>
-        <section>
-          <div className="dropzone">
-            <Dropzone onDrop={this.onDrop}>
-              <p>
-                Please have a copy of your dog's rabies vaccination documentation upon their first official date, or feel free to upload it here:
-              </p>
-            </Dropzone>
-          </div>
-          <aside>
-            <p>Dropped files</p>
-            <ul>
-              {this.state.rabiesDocs.map(f => <li key={f.name}>{f.name} - {f.size} bytes</li>)}
-            </ul>
-          </aside>
-        </section>
         <label>
           What shot(s) has your dog received?
           <textarea

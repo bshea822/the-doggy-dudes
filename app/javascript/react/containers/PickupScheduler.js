@@ -15,7 +15,7 @@ class PickupScheduler extends Component {
   addNewDog(formPayload) {
     fetch("api/v1/dogs", {
       method: "POST",
-      body: formPayload,
+      body: JSON.stringify(formPayload),
       headers: {
         "Accept": "application/json",
         "Content-Type": "application/json"},
