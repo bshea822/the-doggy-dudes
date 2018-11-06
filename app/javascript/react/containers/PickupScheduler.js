@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import UserDogsContainer from './UserDogsContainer';
+import ScheduleContainer from './ScheduleContainer';
 
 class PickupScheduler extends Component {
   constructor(props) {
@@ -94,13 +95,23 @@ class PickupScheduler extends Component {
 
   render() {
     return(
-      <div className="grid-x margin-y">
-        <div className="row">
-          <div className="cell large-4 large-offset-1">
-            <UserDogsContainer
+      <div>
+        <div className="grid-x">
+          <div className="row">
+            <div className="cell large-4 large-offset-1">
+              <UserDogsContainer
+                userDogs={this.state.userDogs}
+                handleSelectDog={this.handleSelectDog}
+                addNewDog={this.addNewDog}
+              />
+            </div>
+          </div>
+        </div>
+        <div className="grid-x">
+          <div className="row">
+            <ScheduleContainer
               userDogs={this.state.userDogs}
-              handleSelectDog={this.handleSelectDog}
-              addNewDog={this.addNewDog}
+              selectedDogs={this.state.selectedDogs}
             />
           </div>
         </div>
