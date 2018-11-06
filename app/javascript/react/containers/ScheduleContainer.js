@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ScheduleForm from './ScheduleForm';
 
 class ScheduleContainer extends Component {
   constructor(props) {
@@ -22,6 +23,7 @@ class ScheduleContainer extends Component {
     return(
       <div>
         <p>Selected Dogs: {this.displaySelectedDogs()}</p>
+        <ScheduleForm />
       </div>
     )
   }

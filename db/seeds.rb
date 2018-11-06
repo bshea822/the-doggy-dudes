@@ -14,3 +14,10 @@ Dog.create(user_id: 1, name: "Samuel Dog Shea", breed: "Sheltie Collie", size: 1
 Service.create(service_name: "Early Morning Group", pickup_time: "08:00", dropoff_time: "10:00")
 Service.create(service_name: "Mid Morning Group", pickup_time: "10:30", dropoff_time: "12:30")
 Service.create(service_name: "Early Afternoon Group", pickup_time: "13:00", dropoff_time: "15:00")
+
+Pickup.create(dog_id: 1, user_id: 1, service_id: 1, pickup_date: Date.parse("11/06/2018"), cost: 23.00)
+Pickup.create(dog_id: 1, user_id: 1, service_id: 2, pickup_date: Date.parse("11/05/2018"), cost: 23.00)
+Pickup.create(dog_id: 1, user_id: 1, service_id: 3, pickup_date: Date.parse("11/04/2018"), cost: 23.00)
+Pickup.create(dog_id: 2, user_id: 1, service_id: 3, pickup_date: Date.parse("11/03/2018"), cost: 23.00)
+Pickup.create(dog_id: 2, user_id: 1, service_id: 2, pickup_date: Date.parse("11/02/2018"), cost: 23.00)
+Pickup.create(dog_id: 2, user_id: 1, service_id: 1, pickup_date: Date.parse("11/01/2018"), cost: 23.00)
