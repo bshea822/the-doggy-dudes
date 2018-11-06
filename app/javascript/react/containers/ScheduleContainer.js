@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class CalendarContainer extends Component {
+class ScheduleContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -27,4 +27,4 @@ class CalendarContainer extends Component {
   }
 }
 
-export default CalendarContainer;
+export default ScheduleContainer;

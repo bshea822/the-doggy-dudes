@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import UserDogsContainer from './UserDogsContainer';
-import CalendarContainer from './CalendarContainer';
+import ScheduleContainer from './ScheduleContainer';
 
 class PickupScheduler extends Component {
   constructor(props) {
@@ -109,7 +109,7 @@ class PickupScheduler extends Component {
         </div>
         <div className="grid-x">
           <div className="row">
-            <CalendarContainer
+            <ScheduleContainer
               userDogs={this.state.userDogs}
               selectedDogs={this.state.selectedDogs}
             />
