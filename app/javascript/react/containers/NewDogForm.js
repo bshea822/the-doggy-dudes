@@ -93,141 +93,168 @@ class NewDogForm extends Component {
   render() {
     return(
       <form onSubmit={this.handleFormSubmit}>
-        <label>
-          Dog Name:
-          <input
-            type="text"
-            name="dogName"
-            value={this.state.dogName}
-            onChange={this.handleChange}
-          />
-        </label>
-        <label>
-          Dog Breed:
-          <input
-            type="text"
-            name="dogBreed"
-            value={this.state.dogBreed}
-            onChange={this.handleChange}
-          />
-        </label>
-        <label>
-          Dog Size:
-          <input
-            type="text"
-            name="dogSize"
-            value={this.state.dogSize}
-            onChange={this.handleChange}
-          />
-        </label>
-        <label>
-          Dog Birthday:
-          <input
-            type="date"
-            name="dogBirthday"
-            value={this.state.dogBirthday}
-            onChange={this.handleChange}
-          />
-        </label>
-        <label>
-          Has your dog been fixed??<br/>
-          <label>
-            <input
-              type="radio"
-              name="dogFixed"
-              value={true}
-              onChange={this.handleChange}
-            />
-            Yes
-          </label>
-          <label>
-            <input
-              type="radio"
-              name="dogFixed"
-              value={false}
-              onChange={this.handleChange}
-            />
-            No
-          </label>
-        </label>
-        <label>
-          Has your dog had a rabies shot?<br/>
-          <label>
-            <input
-              type="radio"
-              name="rabiesShot"
-              value={true}
-              onChange={this.handleChange}
-            />
-            Yes
-          </label>
-          <label>
-            <input
-              type="radio"
-              name="rabiesShot"
-              value={false}
-              onChange={this.handleChange}
-            />
-            No
-          </label>
-        </label>
-        <label>
-          Please have a copy of your dog's rabies vaccination documentation upon their first official date, or feel free to upload it here:
-          <input
-            type="text"
-            name="rabiesDocs"
-            value={this.state.rabiesDocs}
-            onChange={this.handleChange}
-          />
-        </label>
-        <label>
-          What shot(s) has your dog received?
-          <textarea
-            name="otherShots"
-            value={this.state.otherShots}
-            onChange={this.handleChange}
-          />
-        </label>
-        <label>
-          Is there anything we should know about your dog(s) that relates to our ability to safely handle your dog and to ensure the s/he does not pose a safety risk to others?
-          <textarea
-            name="dogHandling"
-            value={this.state.dogHandling}
-            onChange={this.handleChange}
-          />
-        </label>
-        <label>
-          Does your dog respond to voice commands in a manner that will allow us to safely walk him.her OFF the leash and/or take him/her in and out of the car?
-          <textarea
-            name="voiceCommands"
-            value={this.state.voiceCommands}
-            onChange={this.handleChange}
-          />
-        </label>
-        <label>
-          Has your dog ever bitten or injured another person or dog?  If yes please explain and provide details, including when, where, and the circumstances...
-          <textarea
-            name="dogAggression"
-            value={this.state.dogAggression}
-            onChange={this.handleChange}
-          />
-        </label>
-        <label>
-          Does/do your dog(s) take issue with any specific breeds or types of dogs (ie. small dogs, big dogs)?
-          <textarea
-            name="dogIssues"
-            value={this.state.dogIssues}
-            onChange={this.handleChange}
-          />
-        </label>
-        <label>
-          If you will not be home upon pick up or drop off, please provide the necessary information to access your home, to include specific instructions about any alarm:
-          <textarea
-            name="dogReturn"
-            value={this.state.dogReturn}
-            onChange={this.handleChange}
-          />
-        </label>
+        <div className="grid-x grid-margin-x">
+          <div className="cell large-6">
+            <label>
+              Dog Name:
+              <input
+                type="text"
+                name="dogName"
+                value={this.state.dogName}
+                onChange={this.handleChange}
+              />
+            </label>
+          </div>
+          <div className="cell large-6">
+            <label>
+              Dog Breed:
+              <input
+                type="text"
+                name="dogBreed"
+                value={this.state.dogBreed}
+                onChange={this.handleChange}
+              />
+            </label>
+          </div>
+        </div>
+        <div className="grid-x grid-margin-x">
+          <div className="cell large-6">
+            <label>
+              Dog Size:
+              <input
+                type="text"
+                name="dogSize"
+                value={this.state.dogSize}
+                onChange={this.handleChange}
+              />
+            </label>
+          </div>
+          <div className="cell large-6">
+            <label>
+              Dog Birthday:
+              <input
+                type="date"
+                name="dogBirthday"
+                value={this.state.dogBirthday}
+                onChange={this.handleChange}
+              />
+            </label>
+          </div>
+        </div>
+        <div className="grid-x grid-margin-x">
+          <div className="cell large-5 large-offset-1">
+            <label>
+              Has your dog been fixed??<br/>
+              <label>
+                <input
+                  type="radio"
+                  name="dogFixed"
+                  value={true}
+                  onChange={this.handleChange}
+                />
+                Yes
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  name="dogFixed"
+                  value={false}
+                  onChange={this.handleChange}
+                />
+                No
+              </label>
+            </label>
+          </div>
+          <div className="cell large-5 large-offset-1">
+            <label>
+              Has your dog had a rabies shot?<br/>
+              <label>
+                <input
+                  type="radio"
+                  name="rabiesShot"
+                  value={true}
+                  onChange={this.handleChange}
+                />
+                Yes
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  name="rabiesShot"
+                  value={false}
+                  onChange={this.handleChange}
+                />
+                No
+              </label>
+            </label>
+          </div>
+        </div>
+        <div className="grid-x grid-margin-x">
+          <div className="cell large-6">
+            <label>
+              Has your dog received any other shots?
+              <textarea
+                name="otherShots"
+                value={this.state.otherShots}
+                onChange={this.handleChange}
+              />
+            </label>
+          </div>
+          <div className="cell large-6">
+            <label>
+              Is there anything we should know about your dog(s) that relates to our ability to safely handle your dog and to ensure the s/he does not pose a safety risk to others?
+              <textarea
+                name="dogHandling"
+                value={this.state.dogHandling}
+                onChange={this.handleChange}
+              />
+            </label>
+          </div>
+        </div>
+        <div className="grid-x grid-margin-x">
+          <div className="cell large-6">
+            <label>
+              Does your dog respond to voice commands in a manner that will allow us to safely walk him/her OFF the leash and/or take him/her in and out of the car?
+              <textarea
+                name="voiceCommands"
+                value={this.state.voiceCommands}
+                onChange={this.handleChange}
+              />
+            </label>
+          </div>
+          <div className="cell large-6">
+            <label>
+              Has your dog ever bitten or injured another person or dog?  If yes please explain and provide details, including when, where, and the circumstances...
+              <textarea
+                name="dogAggression"
+                value={this.state.dogAggression}
+                onChange={this.handleChange}
+              />
+            </label>
+          </div>
+        </div>
+        <div className="grid-x grid-margin-x">
+          <div className="cell large-6">
+            <label>
+              Does/do your dog(s) take issue with any specific breeds or types of dogs (ie. small dogs, big dogs)?
+              <textarea
+                name="dogIssues"
+                value={this.state.dogIssues}
+                onChange={this.handleChange}
+              />
+            </label>
+          </div>
+          <div className="cell large-6">
+            <label>
+              If you will not be home upon pick up or drop off, please provide the necessary information to access your home, to include specific instructions about any alarm:
+              <textarea
+                name="dogReturn"
+                value={this.state.dogReturn}
+                onChange={this.handleChange}
+              />
+            </label>
+          </div>
+        </div>
         <div className="termsx">
           <h4>Terms of Service & Client Agreement</h4>
           <div className="section-body">

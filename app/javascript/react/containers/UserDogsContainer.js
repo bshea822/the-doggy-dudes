@@ -30,28 +30,20 @@ class UserDogsContainer extends Component {
         )
       })
       return(
-        <div>
-          <div className="grid-x">
-            <div className="row">
-              <div className="cell large-6 large-offset-1">
-                <h1>Dogs:</h1>
-                {dogs}
-              </div>
-            </div>
+        <div className="grid-x">
+          <div className="row">
+            <h1>Dogs:</h1>
+            {dogs}
           </div>
-          <div className="grid-x">
-            <div className="row">
-              <button className="button" onClick={this.toggleAddDogForm}>Add A Dog</button>
-            </div>
+          <div className="row">
+            <button className="button" onClick={this.toggleAddDogForm}>Add A Dog</button>
           </div>
-          <div className="grid-x">
-            <div className="row">
-              {!this.state.showAddDogForm && <NewDogForm
-                addNewDog={this.props.addNewDog}
-                toggleAddDogForm={this.toggleAddDogForm}
-                />
-              }
-            </div>
+          <div className="row">
+            {!this.state.showAddDogForm && <NewDogForm
+              addNewDog={this.props.addNewDog}
+              toggleAddDogForm={this.toggleAddDogForm}
+              />
+            }
           </div>
         </div>
       )

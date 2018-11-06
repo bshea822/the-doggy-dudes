@@ -74,16 +74,12 @@ class PickupScheduler extends Component {
 
   render() {
     return(
-      <div className="grid-x">
-        <div className="row">
-          <div className="cell large-4 large-offset-1">
-            <UserDogsContainer
-              userDogs={this.state.userDogs}
-              handleSelectDog={this.handleSelectDog}
-              addNewDog={this.addNewDog}
-            />
-          </div>
-        </div>
+      <div className="pickup-scheduler-container">
+        <UserDogsContainer
+          userDogs={this.state.userDogs}
+          handleSelectDog={this.handleSelectDog}
+          addNewDog={this.addNewDog}
+        />
       </div>
     )
   }
