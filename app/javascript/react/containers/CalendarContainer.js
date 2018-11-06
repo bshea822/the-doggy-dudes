@@ -10,19 +10,18 @@ class CalendarContainer extends Component {
   }
 
   displaySelectedDogs() {
-    showDogs = ``;
+    let showDogs = ``;
     this.props.selectedDogs.forEach((dog) => {
       showDogs += `${dog.name}, `;
     });
 
-    showDogs.chomp
+    return showDogs.substring((showDogs.length - 2), -1);
   }
 
   render() {
     return(
       <div>
-        <p>Selected Dogs: </p>
-
+        <p>Selected Dogs: {this.displaySelectedDogs()}</p>
       </div>
     )
   }
