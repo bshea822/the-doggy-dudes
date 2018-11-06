@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_03_200748) do
+ActiveRecord::Schema.define(version: 2018_11_05_131110) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,28 @@ ActiveRecord::Schema.define(version: 2018_11_03_200748) do
     t.string "tos_name", null: false
     t.datetime "tos_date", null: false
     t.index ["user_id"], name: "index_dogs_on_user_id"
+  end
+
+  create_table "pickups", force: :cascade do |t|
+    t.bigint "dog_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "service_id", null: false
+    t.date "pickup_date", null: false
+    t.text "instructions"
+    t.string "cost", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["dog_id"], name: "index_pickups_on_dog_id"
+    t.index ["service_id"], name: "index_pickups_on_service_id"
+    t.index ["user_id"], name: "index_pickups_on_user_id"
+  end
+
+  create_table "services", force: :cascade do |t|
+    t.string "service_name", null: false
+    t.time "pickup_time", null: false
+    t.time "dropoff_time", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

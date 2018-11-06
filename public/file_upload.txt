@@ -30,7 +30,7 @@ formPayload.append("name", this.state.dogName);
 formPayload.append("breed", this.state.dogBreed);
 formPayload.append("size", this.state.dogSize);
 formPayload.append("birthday", this.state.dogBirthday);
-formPayload.append("rabies", this.state.rabiesShot[0]);
+formPayload.append("rabies", this.state.rabiesShot[]);
 formPayload.append("rabies_docs", this.state.rabiesShot[0]);
 formPayload.append("shots", this.state.otherShots);
 formPayload.append("dog_handling", this.state.dogHandling);

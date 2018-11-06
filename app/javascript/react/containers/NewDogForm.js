@@ -51,7 +51,7 @@ class NewDogForm extends Component {
         tosAccept: null,
         tosName: ""
       }
-    )
+    );
   }
 
   handleFormSubmit(event) {
