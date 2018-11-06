@@ -11,7 +11,7 @@ class DogContainer extends Component {
 
   render() {
     return(
-      <div className="row large-offset-1">
+      <div>
         <label>
           <input
             id={this.props.dogInfo.name}
