@@ -41,10 +41,8 @@ class UserDogsContainer extends Component {
             <h1>Dogs:</h1>
             {dogs}
           </div>
-          <div className="grid-x">
-            <div className="row">
-              <button className="button" onClick={this.toggleAddDogForm}>{this.state.formButtonName}</button>
-            </div>
+          <div className="row">
+            <button className="button" onClick={this.toggleAddDogForm}>{this.state.formButtonName}</button>
           </div>
           <div className="row">
             {!this.state.showAddDogForm && <NewDogForm
@@ -57,8 +55,13 @@ class UserDogsContainer extends Component {
       )
     } else {
       return(
-        <div>
-          <h1>No Dogs</h1>
+        <div className="grid-x">
+          <div className="row">
+            <h1>No Dogs</h1>
+          </div>
+          <div className="row">
+            <button className="button" onClick={this.toggleAddDogForm}>{this.state.formButtonName}</button>
+          </div>
         </div>
       )
     }

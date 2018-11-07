@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import SlideTile from '../components/SlideTile';
-import Carousel from 'nuka-carousel'
+import Carousel from 'nuka-carousel';
 
 class SlideContainer extends Component {
   constructor(props) {

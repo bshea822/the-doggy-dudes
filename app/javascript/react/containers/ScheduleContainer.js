@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ScheduleForm from './ScheduleForm';
+import ScheduleTable from './ScheduleTable';
 
 class ScheduleContainer extends Component {
   constructor(props) {
@@ -21,9 +22,18 @@ class ScheduleContainer extends Component {
 
   render() {
     return(
-      <div>
-        <p>Selected Dogs: {this.displaySelectedDogs()}</p>
-        <ScheduleForm />
+      <div className="grid-x">
+        <div className="row">
+          <p>Selected Dogs: {this.displaySelectedDogs()}</p>
+          <div className="grid-x">
+            <div className="cell large-3">
+              <ScheduleForm />
+            </div>
+            <div className="cell large-9">
+              <ScheduleTable />
+            </div>
+          </div>
+        </div>
       </div>
     )
   }

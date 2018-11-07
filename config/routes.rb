@@ -15,6 +15,12 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :api do
+    namespace :v1 do
+      resources :pickups, only: [:index, :create]
+    end
+  end
+
   get '/pickups', to: "pickups#index"
   get '*path', to: 'homes#index'
 end
