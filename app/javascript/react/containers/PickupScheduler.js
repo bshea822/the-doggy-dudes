@@ -101,6 +101,10 @@ class PickupScheduler extends Component {
           handleSelectDog={this.handleSelectDog}
           addNewDog={this.addNewDog}
         />
+        <ScheduleContainer
+          userDogs={this.state.userDogs}
+          selectedDogs={this.state.selectedDogs}
+        />
       </div>
     )
   }
