@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ScheduleForm from './ScheduleForm';
+import ScheduleFormContainer from './ScheduleFormContainer';
 import ScheduleTable from './ScheduleTable';
 
 class ScheduleContainer extends Component {
@@ -76,11 +76,11 @@ class ScheduleContainer extends Component {
       <div className="grid-x">
         <div className="row">
           <p>Selected Dogs: {this.displaySelectedDogs()}</p>
-          <div className="grid-x">
-            <div className="cell large-3">
-              <ScheduleForm />
+          <div className="grid-x grid-margin-x">
+            <div className="cell large-4">
+              <ScheduleFormContainer />
             </div>
-            <div className="cell large-9">
+            <div className="cell large-8">
               <ScheduleTable
                 pickups={this.state.pickups}
                 sortByDate={this.sortByDate}

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
-class ScheduleForm extends Component {
+class SingleDayForm extends Component {
   constructor(props) {
     super(props);
-    this.state = {
+    this.state={
 
     };
 
@@ -12,10 +12,10 @@ class ScheduleForm extends Component {
   render() {
     return(
       <div>
-        This is where the form will go.
+        Single Day!
       </div>
     );
   }
 }
 
-export default ScheduleForm;
+export default SingleDayForm;

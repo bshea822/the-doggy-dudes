@@ -25,6 +25,10 @@
   margin-left: 10rem;
 }
 
+.schedule-form {
+  border: 1px solid black
+}
+
 .subnav-hero-section {
   text-align: center;
   background: #EDE5C9;
