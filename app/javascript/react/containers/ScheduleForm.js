@@ -12,7 +12,7 @@ class ScheduleForm extends Component {
   render() {
     return(
       <div>
-        Hello World
+        This is where the form will go.
       </div>
     );
   }

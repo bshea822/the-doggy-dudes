@@ -1,4 +1,5 @@
 class DogSerializer < ActiveModel::Serializer
-  attributes :id, :name, :user
+  attributes :id, :name, :pickups
   belongs_to :user
+  has_many :pickups
 end
