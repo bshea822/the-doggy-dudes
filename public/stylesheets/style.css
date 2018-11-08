@@ -10,6 +10,7 @@
   margin-top: 2rem;
   background: #334857;
   border-radius: 25px;
+  color: white;
 }
 
 .termsx {
@@ -18,6 +19,10 @@
   width: 100%;
   border: 1px solid black;
   padding: 10px;
+}
+
+.responsive-card-table a {
+  margin-left: 10rem;
 }
 
 .subnav-hero-section {

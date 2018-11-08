@@ -5,39 +5,18 @@ class ScheduleTable extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      pickups: []
+
     };
 
   }
 
-  componentDidMount() {
-    fetch('/api/v1/pickups',
-    {
-      credentials: 'same-origin'
-    })
-    .then(response => {
-      if (response.ok) {
-        return response;
-      } else {
-        let errorMessage = `${response.status} (${response.statusText})`,
-          error = new Error(errorMessage);
-        throw error;
-      }
-    })
-    .then(response => response.json())
-    .then(response => {
-      this.setState({ pickups: response.pickups });
-    })
-    .catch(error => console.error(`Error in fetch: ${error.message}`));
-  }
-
   render() {
-    let pickups = this.state.pickups.map((pickup) => {
+    let pickups = this.props.pickups.map((pickup) => {
       return(
         <TableComponent
           key={pickup.id}
           dogName={pickup.dog.name}
-          pickupDate={pickup.date}
+          pickupDate={pickup.pickup_date}
           instructions={pickup.instructions}
           pickupTime={pickup.service.pickup_time}
           dropoffTime={pickup.service.dropoff_time}
@@ -52,7 +31,7 @@ class ScheduleTable extends Component {
             <tr>
               <th>Dog</th>
               <th>Play Group</th>
-              <th>Play Date</th>
+              <th>Play Date<a onClick={this.props.sortByDate}>{this.props.dateOrder}</a></th>
             </tr>
           </thead>
           <tbody>

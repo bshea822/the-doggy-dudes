@@ -6,9 +6,40 @@ class ScheduleContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-
+      pickups: [],
+      dateOrder: "Ascending"
     };
+    this.displaySelectedDogs = this.displaySelectedDogs.bind(this);
+    this.sortByDate = this.sortByDate.bind(this);
+  }
 
+  componentDidMount() {
+    fetch('/api/v1/pickups',
+    {
+      credentials: 'same-origin'
+    })
+    .then(response => {
+      if (response.ok) {
+        return response;
+      } else {
+        let errorMessage = `${response.status} (${response.statusText})`,
+          error = new Error(errorMessage);
+        throw error;
+      }
+    })
+    .then(response => response.json())
+    .then(response => {
+      let unsorted = response.pickups;
+      let sorted = unsorted.sort((a,b) => {
+        return new Date(a.pickup_date) -
+          new Date(b.pickup_date);
+      });
+      return sorted;
+    })
+    .then(response => {
+      this.setState({ pickups: response });
+    })
+    .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
   displaySelectedDogs() {
@@ -18,6 +49,26 @@ class ScheduleContainer extends Component {
     });
 
     return showDogs.substring((showDogs.length - 2), -1);
+  }
+
+  sortByDate(event) {
+    if (this.state.dateOrder === "Ascending") {
+      let descending = this.state.pickups.reverse();
+      this.setState(
+        {
+          pickups: descending,
+          dateOrder: "Descending"
+        }
+      );
+    } else {
+      let ascending = this.state.pickups.reverse();
+      this.setState(
+        {
+          pickups: ascending,
+          dateOrder: "Ascending"
+        }
+      );
+    }
   }
 
   render() {
@@ -30,7 +81,11 @@ class ScheduleContainer extends Component {
               <ScheduleForm />
             </div>
             <div className="cell large-9">
-              <ScheduleTable />
+              <ScheduleTable
+                pickups={this.state.pickups}
+                sortByDate={this.sortByDate}
+                dateOrder={this.state.dateOrder}
+              />
             </div>
           </div>
         </div>
