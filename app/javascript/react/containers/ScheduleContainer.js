@@ -78,7 +78,9 @@ class ScheduleContainer extends Component {
           <p>Selected Dogs: {this.displaySelectedDogs()}</p>
           <div className="grid-x grid-margin-x">
             <div className="cell large-4">
-              <ScheduleFormContainer />
+              <ScheduleFormContainer
+                selectedDogs={this.props.selectedDogs}
+              />
             </div>
             <div className="cell large-8">
               <ScheduleTable

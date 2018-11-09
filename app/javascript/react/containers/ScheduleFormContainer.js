@@ -69,7 +69,7 @@ class ScheduleFormContainer extends Component {
   render() {
     return(
       <div className="grid-x grid-margin-x">
-        <div className="cell large-12">
+        <div className="cell large-11 large-offset-1">
           <label>
             Please select how you would like to schedule your dog(s) playgroups:
             <label>
@@ -101,9 +101,15 @@ class ScheduleFormContainer extends Component {
             </label>
           </label>
         </div>
-        {this.state.scheduleType === "single" && <SingleDayForm />}
-        {this.state.scheduleType === "multiple" && <MultipleDaysForm />}
-        {this.state.scheduleType === "recurring" && <RecurWeeklyForm />}
+        {this.state.scheduleType === "single" && <SingleDayForm
+          selectedDogs={this.props.selectedDogs}
+        />}
+        {this.state.scheduleType === "multiple" && <MultipleDaysForm
+          selectedDogs={this.props.selectedDogs}
+        />}
+        {this.state.scheduleType === "recurring" && <RecurWeeklyForm
+          selectedDogs={this.props.selectedDogs}
+        />}
       </div>
     );
   }

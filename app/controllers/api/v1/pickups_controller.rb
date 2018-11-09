@@ -8,4 +8,8 @@ class Api::V1::PickupsController < ApplicationController
   def index
     render json: current_user.pickups
   end
+
+  def create
+
+  end
 end
