@@ -11,6 +11,7 @@ class ScheduleContainer extends Component {
     };
     this.displaySelectedDogs = this.displaySelectedDogs.bind(this);
     this.sortByDate = this.sortByDate.bind(this);
+    this.addPickups = this.addPickups.bind(this);
   }
 
   componentDidMount() {
@@ -39,6 +40,38 @@ class ScheduleContainer extends Component {
     .then(response => {
       this.setState({ pickups: response });
     })
+    .catch(error => console.error(`Error in fetch: ${error.message}`));
+  }
+
+  addPickups(formPayload) {
+    fetch("api/v1/pickups", {
+      method: "POST",
+      body: JSON.stringify(formPayload),
+      headers: {
+        "Accept": "application/json",
+        "Content-Type": "application/json"
+      },
+      credentials: "same-origin"
+    })
+    .then(response => {
+      if (response.ok) {
+        return response;
+      } else {
+        let errorMessage = `${response.status} (${response.statusText})`,
+          error = new Error(errorMessage);
+        throw error;
+      }
+    })
+    .then(response => response.json())
+    .then(response => {
+      let unsorted = response.pickups;
+      let sorted = unsorted.sort((a,b) => {
+        return new Date(a.pickup_date) -
+          new Date(b.pickup_date);
+      });
+      return sorted;
+    })
+    .then(response => this.setState({ pickups: response }))
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
@@ -80,6 +113,8 @@ class ScheduleContainer extends Component {
             <div className="cell large-4">
               <ScheduleFormContainer
                 selectedDogs={this.props.selectedDogs}
+                addPickups={this.addPickups}
+                userId={this.props.userId}
               />
             </div>
             <div className="cell large-8">

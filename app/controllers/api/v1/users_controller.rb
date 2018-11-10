@@ -14,4 +14,10 @@ class Api::V1::UsersController < ApplicationController
     yield if block_given?
     respond_to_on_destroy
   end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:id)
+  end
 end

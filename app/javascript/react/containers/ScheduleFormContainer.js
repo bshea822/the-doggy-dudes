@@ -103,12 +103,18 @@ class ScheduleFormContainer extends Component {
         </div>
         {this.state.scheduleType === "single" && <SingleDayForm
           selectedDogs={this.props.selectedDogs}
+          addPickups={this.props.addPickups}
+          userId={this.props.userId}
         />}
         {this.state.scheduleType === "multiple" && <MultipleDaysForm
           selectedDogs={this.props.selectedDogs}
+          addPickups={this.props.addPickups}
+          userId={this.props.userId}
         />}
         {this.state.scheduleType === "recurring" && <RecurWeeklyForm
           selectedDogs={this.props.selectedDogs}
+          addPickups={this.props.addPickups}
+          userId={this.props.userId}
         />}
       </div>
     );

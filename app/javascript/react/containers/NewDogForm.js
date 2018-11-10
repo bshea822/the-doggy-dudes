@@ -9,16 +9,16 @@ class NewDogForm extends Component {
       dogBreed: "",
       dogSize: "",
       dogBirthday: "",
-      rabiesShot: null,
+      rabiesShot: undefined,
       rabiesDocs: [],
       otherShots: "",
       dogHandling: "",
       voiceCommands: "",
       dogAggression: "",
-      dogFixed: null,
+      dogFixed: undefined,
       dogReturn: "",
       dogIssues: "",
-      tosAccept: null,
+      tosAccept: undefined,
       tosName: ""
     };
     this.handleChange = this.handleChange.bind(this);

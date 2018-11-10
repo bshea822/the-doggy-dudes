@@ -19,32 +19,35 @@ class SingleDayForm extends Component {
     this.setState({ [event.target.name]: event.target.value });
   }
 
-  handleFormClear() {
+  handleFormClear(event) {
     event.preventDefault();
     this.setState(
       {
         pickupDate: "",
         instructions: "",
-        playGroup: undefined
+        playGroup: 0
       }
     );
   }
 
-  handleFormSubmit() {
+  handleFormSubmit(event) {
     event.preventDefault();
     if (this.state.pickupDate != "" && this.state.playGroup != "") {
       let formPayload = { pickups: [] };
       let pickup = {};
+      let userId = this.props.userId;
       this.props.selectedDogs.forEach((dog) => {
         pickup = {
+          user_id: userId,
           dog_id: dog.id,
           service_id: this.state.playGroup,
           pickup_date: moment(this.state.pickupDate).format('DD/MM/YYYY'),
           instructions: this.state.instructions
         };
         formPayload.pickups.push(pickup);
-        debugger
       });
+      this.props.addPickups(formPayload);
+      this.handleFormClear(event);
     }
   }
 
