@@ -95,17 +95,19 @@ class PickupScheduler extends Component {
 
   render() {
     return(
-      <div className="pickup-scheduler-container">
-        <UserDogsContainer
-          userDogs={this.state.userDogs}
-          handleSelectDog={this.handleSelectDog}
-          addNewDog={this.addNewDog}
-        />
-        <ScheduleContainer
-          userDogs={this.state.userDogs}
-          selectedDogs={this.state.selectedDogs}
-          userId={this.props.currentUser.id}
-        />
+      <div className="pickup-scheduler-background">
+        <div className="pickup-scheduler-container">
+          <UserDogsContainer
+            userDogs={this.state.userDogs}
+            handleSelectDog={this.handleSelectDog}
+            addNewDog={this.addNewDog}
+          />
+          <ScheduleContainer
+            userDogs={this.state.userDogs}
+            selectedDogs={this.state.selectedDogs}
+            userId={this.props.currentUser.id}
+          />
+        </div>
       </div>
     )
   }

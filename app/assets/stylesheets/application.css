@@ -13,6 +13,29 @@
  *= require_tree .
  *= require_self
  *= require foundation_and_overrides
- *= require foundation
 
  */
+
+body {
+  background: #334857;
+}
+
+.log-in {
+  background: #EDE5C9;
+  margin-top: 40px;
+  margin-right: 25%;
+  margin-left: 25%;
+  border-radius: 25px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.sign-up {
+  background: #EDE5C9;
+  margin-top: 40px;
+  margin-right: 25%;
+  margin-left: 25%;
+  border-radius: 25px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}

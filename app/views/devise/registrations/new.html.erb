@@ -1,105 +1,109 @@
-<h2>Sign up</h2>
+<div class="grid-x grid-margin-x sign-up">
+  <div class="cell large-6 large-offset-3">
+    <h2>Sign up</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= devise_error_messages! %>
 
-  <div class="field">
-    <div class="required">
-      <%= f.label :first_name %>
-    </div>
-    <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" %>
+      <div class="field">
+        <div class="required">
+          <%= f.label :first_name %>
+        </div>
+        <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" %>
+      </div>
+
+      <div class="field">
+        <div class="required">
+          <%= f.label :last_name %>
+        </div>
+        <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name" %>
+      </div>
+
+      <div class="field">
+        <div class="required">
+          <%= f.label :email %>
+        </div>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
+
+      <div class="field">
+        <div class="required">
+          <%= f.label :phone, "Phone Number" %>
+        </div>
+        <%= f.text_field :phone, autofocus: true, autocomplete: "phone" %>
+      </div>
+
+      <div class="field">
+        <div class="required">
+          <%= f.label :address %>
+        </div>
+        <%= f.text_field :address, autofocus: true, autocomplete: "address" %>
+      </div>
+
+      <div class="field">
+        <div class="required">
+          <%= f.label :city %>
+        </div>
+        <%= f.text_field :city, autofocus: true, autocomplete: "city" %>
+      </div>
+
+      <div class="field">
+        <div class="required">
+          <%= f.label :state %>
+        </div>
+        <%= f.select :state, options_for_select(User::STATES), include_blank: true %>
+      </div>
+
+      <div class="field">
+        <div class="required">
+          <%= f.label :zip_code %>
+        </div>
+        <%= f.text_field :zip_code, autofocus: true, autocomplete: "zip_code" %>
+      </div>
+
+      <div class="field">
+        <p>If you will not be home, do The Doggy Dudes have permission to enter your home for the purposes of picking up and dropping of your dog?</p>
+        <div class="required">
+          <%= f.label :pickup_permission, "Permission:" %>
+        </div>
+        <%= f.radio_button :pickup_permission, true %>
+        <%= f.label :pickup_permission, "Yes" %><br>
+        <%= f.radio_button :pickup_permission, false %>
+        <%= f.label :pickup_permission, "No" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :vet %>
+        <%= f.text_field :vet, autofocus: true, autocomplete: "vet" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :vet_phone %>
+        <%= f.text_field :vet_phone, autofocus: true, autocomplete: "vet_phone" %>
+      </div>
+
+      <div class="field">
+        <div class="required">
+          <%= f.label :password %>
+        </div>
+        <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "new-password" %>
+      </div>
+
+      <div class="field">
+        <div class="required">
+          <%= f.label :password_confirmation %>
+        </div>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Sign up" %>
+      </div>
+    <% end %>
+
+    <%= render "devise/shared/links" %>
   </div>
-
-  <div class="field">
-    <div class="required">
-      <%= f.label :last_name %>
-    </div>
-    <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name" %>
-  </div>
-
-  <div class="field">
-    <div class="required">
-      <%= f.label :email %>
-    </div>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <div class="required">
-      <%= f.label :phone, "Phone Number" %>
-    </div>
-    <%= f.text_field :phone, autofocus: true, autocomplete: "phone" %>
-  </div>
-
-  <div class="field">
-    <div class="required">
-      <%= f.label :address %>
-    </div>
-    <%= f.text_field :address, autofocus: true, autocomplete: "address" %>
-  </div>
-
-  <div class="field">
-    <div class="required">
-      <%= f.label :city %>
-    </div>
-    <%= f.text_field :city, autofocus: true, autocomplete: "city" %>
-  </div>
-
-  <div class="field">
-    <div class="required">
-      <%= f.label :state %>
-    </div>
-    <%= f.select :state, options_for_select(User::STATES), include_blank: true %>
-  </div>
-
-  <div class="field">
-    <div class="required">
-      <%= f.label :zip_code %>
-    </div>
-    <%= f.text_field :zip_code, autofocus: true, autocomplete: "zip_code" %>
-  </div>
-
-  <div class="field">
-    <p>If you will not be home, do The Doggy Dudes have permission to enter your home for the purposes of picking up and dropping of your dog?</p>
-    <div class="required">
-      <%= f.label :pickup_permission, "Permission:" %>
-    </div>
-    <%= f.radio_button :pickup_permission, true %>
-    <%= f.label :pickup_permission, "Yes" %><br>
-    <%= f.radio_button :pickup_permission, false %>
-    <%= f.label :pickup_permission, "No" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :vet %>
-    <%= f.text_field :vet, autofocus: true, autocomplete: "vet" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :vet_phone %>
-    <%= f.text_field :vet_phone, autofocus: true, autocomplete: "vet_phone" %>
-  </div>
-
-  <div class="field">
-    <div class="required">
-      <%= f.label :password %>
-    </div>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <div class="required">
-      <%= f.label :password_confirmation %>
-    </div>
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>

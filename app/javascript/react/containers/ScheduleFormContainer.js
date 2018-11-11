@@ -24,7 +24,7 @@ class ScheduleFormContainer extends Component {
 
   render() {
     return(
-      <div className="grid-x grid-margin-x">
+      <div className="grid-x grid-margin-x schedule-form-container">
         <div className="cell large-11 large-offset-1">
           <label>
             Please select how you would like to schedule your dog(s) playgroups:
