@@ -77,7 +77,7 @@ class SingleDayForm extends Component {
             Instructions:
             <textarea value={this.state.instructions} name="instructions" onChange={this.handleChange}/>
           </label>
-          <button className="button" type="submit">Submit</button>
+          <button className="button submit-form" type="submit">Submit</button>
           <button className="button" onClick={this.handleFormClear}>Clear Form</button>
         </form>
       </div>
