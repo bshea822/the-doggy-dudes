@@ -8,7 +8,7 @@ class MultipleDaysForm extends Component {
       datesAdded: [],
       pickupDate: "",
       instructions: "",
-      playGroup: undefined,
+      playGroup: 0,
       currentDay: moment().utc().format('MMMM Do YYYY')
     };
     this.handleChange = this.handleChange.bind(this);

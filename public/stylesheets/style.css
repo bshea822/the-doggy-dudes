@@ -29,6 +29,23 @@
   border: 1px solid black
 }
 
+/* .user-dogs {
+  content: "";
+  display: block;
+  margin: 0 auto;
+  width: 75%;
+  padding-top: 20px;
+  margin-bottom: 20px;
+  border-bottom: 2px solid grey;
+} */
+
+hr.bottom-border {
+  border: 0;
+  height: 1px;
+  background: #333;
+  background-image: linear-gradient(to right, #ccc, #333, #ccc);
+}
+
 .subnav-hero-section {
   text-align: center;
   background: #EDE5C9;

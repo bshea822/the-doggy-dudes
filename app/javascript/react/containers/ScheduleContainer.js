@@ -106,7 +106,7 @@ class ScheduleContainer extends Component {
 
   render() {
     return(
-      <div className="grid-x">
+      <div className="grid-x schedule-container">
         <div className="row">
           <p>Selected Dogs: {this.displaySelectedDogs()}</p>
           <div className="grid-x grid-margin-x">

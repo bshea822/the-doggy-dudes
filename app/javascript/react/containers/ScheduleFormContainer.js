@@ -22,50 +22,6 @@ class ScheduleFormContainer extends Component {
     this.setState({[event.target.name]: event.target.value});
   }
 
-  // <label>
-  //   Select Days:
-  //   <label>
-  //     <input
-  //       type="checkbox"
-  //       id="Mon"
-  //       value="Mon"
-  //     />
-  //     Monday
-  //   </label>
-  //   <label>
-  //     <input
-  //       type="checkbox"
-  //       id="Tue"
-  //       value="Tue"
-  //     />
-  //     Tuesday
-  //   </label>
-  //   <label>
-  //     <input
-  //       type="checkbox"
-  //       id="Wed"
-  //       value="Wed"
-  //     />
-  //     Wednesday
-  //   </label>
-  //   <label>
-  //     <input
-  //       type="checkbox"
-  //       id="Thur"
-  //       value="Thur"
-  //     />
-  //     Thursday
-  //   </label>
-  //   <label>
-  //     <input
-  //       type="checkbox"
-  //       id="Fri"
-  //       value="Fri"
-  //     />
-  //     Friday
-  //   </label>
-  // </label>
-
   render() {
     return(
       <div className="grid-x grid-margin-x">
