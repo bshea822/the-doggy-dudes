@@ -104,6 +104,7 @@ class PickupScheduler extends Component {
         <ScheduleContainer
           userDogs={this.state.userDogs}
           selectedDogs={this.state.selectedDogs}
+          userId={this.props.currentUser.id}
         />
       </div>
     )

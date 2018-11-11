@@ -6,7 +6,6 @@ class CreatePickup < ActiveRecord::Migration[5.2]
       t.belongs_to :service, null: false
       t.date :pickup_date, null: false
       t.text :instructions
-      t.string :cost, null: false
 
       t.timestamps
     end

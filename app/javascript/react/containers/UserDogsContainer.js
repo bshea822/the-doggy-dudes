@@ -36,28 +36,31 @@ class UserDogsContainer extends Component {
         )
       })
       return(
-        <div className="grid-x">
-          <div className="row">
-            <h1>Dogs:</h1>
-            {dogs}
+        <div>
+          <div className="grid-x user-dogs">
+            <div className="row">
+              <h3>Your Dogs:</h3>
+              {dogs}
+            </div>
+            <div className="row">
+              <button className="button" onClick={this.toggleAddDogForm}>{this.state.formButtonName}</button>
+            </div>
+            <div className="row">
+              {!this.state.showAddDogForm && <NewDogForm
+                addNewDog={this.props.addNewDog}
+                toggleAddDogForm={this.toggleAddDogForm}
+                />
+              }
+            </div>
           </div>
-          <div className="row">
-            <button className="button" onClick={this.toggleAddDogForm}>{this.state.formButtonName}</button>
-          </div>
-          <div className="row">
-            {!this.state.showAddDogForm && <NewDogForm
-              addNewDog={this.props.addNewDog}
-              toggleAddDogForm={this.toggleAddDogForm}
-              />
-            }
-          </div>
+          <hr className="bottom-border"/>
         </div>
       )
     } else {
       return(
         <div className="grid-x">
           <div className="row">
-            <h1>No Dogs</h1>
+            <h3>No Dogs</h3>
           </div>
           <div className="row">
             <button className="button" onClick={this.toggleAddDogForm}>{this.state.formButtonName}</button>

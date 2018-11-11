@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ScheduleForm from './ScheduleForm';
+import ScheduleFormContainer from './ScheduleFormContainer';
 import ScheduleTable from './ScheduleTable';
 
 class ScheduleContainer extends Component {
@@ -11,6 +11,7 @@ class ScheduleContainer extends Component {
     };
     this.displaySelectedDogs = this.displaySelectedDogs.bind(this);
     this.sortByDate = this.sortByDate.bind(this);
+    this.addPickups = this.addPickups.bind(this);
   }
 
   componentDidMount() {
@@ -39,6 +40,38 @@ class ScheduleContainer extends Component {
     .then(response => {
       this.setState({ pickups: response });
     })
+    .catch(error => console.error(`Error in fetch: ${error.message}`));
+  }
+
+  addPickups(formPayload) {
+    fetch("api/v1/pickups", {
+      method: "POST",
+      body: JSON.stringify(formPayload),
+      headers: {
+        "Accept": "application/json",
+        "Content-Type": "application/json"
+      },
+      credentials: "same-origin"
+    })
+    .then(response => {
+      if (response.ok) {
+        return response;
+      } else {
+        let errorMessage = `${response.status} (${response.statusText})`,
+          error = new Error(errorMessage);
+        throw error;
+      }
+    })
+    .then(response => response.json())
+    .then(response => {
+      let unsorted = response.pickups;
+      let sorted = unsorted.sort((a,b) => {
+        return new Date(a.pickup_date) -
+          new Date(b.pickup_date);
+      });
+      return sorted;
+    })
+    .then(response => this.setState({ pickups: response }))
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
@@ -73,14 +106,18 @@ class ScheduleContainer extends Component {
 
   render() {
     return(
-      <div className="grid-x">
+      <div className="grid-x schedule-container">
         <div className="row">
           <p>Selected Dogs: {this.displaySelectedDogs()}</p>
-          <div className="grid-x">
-            <div className="cell large-3">
-              <ScheduleForm />
+          <div className="grid-x grid-margin-x">
+            <div className="cell large-4">
+              <ScheduleFormContainer
+                selectedDogs={this.props.selectedDogs}
+                addPickups={this.addPickups}
+                userId={this.props.userId}
+              />
             </div>
-            <div className="cell large-9">
+            <div className="cell large-8">
               <ScheduleTable
                 pickups={this.state.pickups}
                 sortByDate={this.sortByDate}

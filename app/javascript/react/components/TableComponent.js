@@ -2,7 +2,6 @@ import React from 'react';
 import moment from 'moment';
 
 const TableComponent = (props) => {
-
   return(
     <tr>
       <td data-label="Dog">{props.dogName}</td>
